@@ -1,0 +1,80 @@
+html {
+    font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body {
+    margin: 0em;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+}
+#main {
+    padding-left: 1em;
+    padding-right: 1em;
+    order: 2;
+    flex: 1;
+}
+#sidebar {
+    padding: 1em;
+    padding-top: 0em;
+    background-color: rgba(0, 0, 0, 0.1);
+    order: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+#post-list {
+    padding: 0em;
+    list-style: none;
+}
+#sidebar ul {
+    padding-left: 1em;
+    list-style: none;
+}
+
+.post-details {
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+.sidebar-label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+.card {
+    border: 1px solid black;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 0.3em;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid black;
+    padding: 2px 8px;
+}
+
+.tags {
+    padding: 0em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.tags li {
+    display: inline;
+}
+.tag, .tags li {
+    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 90%;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.15em;
+    border-radius: 10%;
+}

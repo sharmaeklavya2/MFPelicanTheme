@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/base.css" />
+    {% endblock head%}
+</head>
+
+<body>
+
+<div id="sidebar">
+    <div>
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+        <ul>
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+        {% endif %}
+            <li></li>
+        </ul>
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        <p class="sidebar-label"><a href="{{ SITEURL }}/tags.html"> Tags </a></p>
+        <p class="sidebar-label"> Categories </p>
+        <ul>
+            {% for cat, articles in categories %}
+            <a href="{{ SITEURL }}/{{ cat.url }}">
+                <li{% if cat == category %} class="active"{% endif %}>
+                {{ cat }} ({{ articles|count }})
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <footer id="contentinfo">
+        <address id="about">
+        Powered by <a href="http://getpelican.com/">Pelican</a>.
+        </address><!-- /#about -->
+    </footer><!-- /#contentinfo -->
+</div>
+
+<div id="main">
+{% block content %}
+{% endblock %}
+</div>
+
+</body>
+</html>

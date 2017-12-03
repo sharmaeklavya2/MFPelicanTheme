@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    {% if article.description %}
+        <meta name="description" content="{{article.description}}" />
+    {% endif %}
+
+    {% for tag in article.tags %}
+        <meta name="tag" content="{{tag}}" />
+    {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+    <h1 class="entry-title">{{ article.title }}</h1>
+    {% include 'post_details.html' %}
+
+    <div class="entry-content">
+        {{ article.content }}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+<table class="post-details">
+    <tr>
+        <td>Published</td>
+        <td><time class="published" datetime="{{ article.date.isoformat() }}">
+            {{ article.locale_date }}</time></td>
+    </tr>
+{% if article.modified %}
+    <tr>
+        <td>Modified</td>
+        <td><time class="modified" datetime="{{ article.modified.isoformat() }}">
+            {{ article.locale_modified }}</time></td>
+    </tr>
+{% endif %}
+{% if article.category %}
+    <tr>
+        <td>Category</td>
+        <td>{{ article.category }}</td>
+    </tr>
+{% endif %}
+{% if article.tags %}
+    <tr>
+        <td>Tags</td>
+        <td>
+            <ul class="tags">
+    {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}"><li>{{ tag }}</li></a>
+    {% endfor %}
+            </ul>
+        </td>
+    </tr>
+{% endif %}
+{% if SHOW_AUTHORS and article.authors %}
+    <tr>
+        <td>Authors</td>
+        <td>
+            <ul class="tags">
+    {% for author in article.authors %}
+                <a href="{{ SITEURL }}/{{ author.url }}"><li>{{ author }}</li></a>
+    {% endfor %}
+            </ul>
+        </td>
+    </tr>
+{% endif %}
+</table>
