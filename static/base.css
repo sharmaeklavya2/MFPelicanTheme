@@ -36,6 +36,9 @@ body {
     margin-left: 1em;
     margin-bottom: 1em;
 }
+.post-details-clearfix {
+    clear: both;
+}
 .sidebar-label {
     font-size: 1.2em;
     font-weight: bold;
@@ -47,6 +50,7 @@ a {
 .card {
     border: 1px solid black;
     padding: 1em;
+    padding-bottom: 0em;
     margin-top: 1em;
     margin-bottom: 1em;
     border-radius: 0.3em;
