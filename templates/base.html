@@ -26,7 +26,6 @@
             <li></li>
         </ul>
         {% if DISPLAY_CATEGORIES_ON_MENU %}
-        <p class="sidebar-label"><a href="{{ SITEURL }}/tags.html"> Tags </a></p>
         <p class="sidebar-label"> Categories </p>
         <ul>
             {% for cat, articles in categories %}
@@ -34,6 +33,16 @@
                 <li{% if cat == category %} class="active"{% endif %}>
                 {{ cat }} ({{ articles|count }})
                 </li>
+            </a>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if DISPLAY_TAGS_ON_MENU %}
+        <p class="sidebar-label"><a> Tags </a></p>
+        <ul>
+            {% for tag, articles in tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">
+                <li> {{ tag }} ({{ articles|count }}) </li>
             </a>
             {% endfor %}
         </ul>

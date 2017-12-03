@@ -11,13 +11,13 @@
             {{ article.locale_modified }}</time></td>
     </tr>
 {% endif %}
-{% if article.category %}
+{% if USE_CATEGORIES and article.category %}
     <tr>
         <td>Category</td>
         <td>{{ article.category }}</td>
     </tr>
 {% endif %}
-{% if article.tags %}
+{% if USE_TAGS and article.tags %}
     <tr>
         <td>Tags</td>
         <td>
