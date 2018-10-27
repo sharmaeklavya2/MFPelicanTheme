@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}">
+<html{% if DEFAULT_LANG %} lang="{{ DEFAULT_LANG }}"{% endif %}>
 <head>
     {% block head %}
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
@@ -13,7 +13,7 @@
 
 <div id="sidebar">
     <div>
-        <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
         <ul>
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
@@ -37,7 +37,7 @@
         </ul>
         {% endif %}
         {% if DISPLAY_TAGS_ON_MENU %}
-        <p class="sidebar-label"><a> Tags </a></p>
+        <p class="sidebar-label"> Tags </p>
         <ul>
             {% for tag, articles in tags %}
             <a href="{{ SITEURL }}/{{ tag.url }}">
