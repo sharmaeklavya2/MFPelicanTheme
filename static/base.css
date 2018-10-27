@@ -77,10 +77,12 @@ body {
     }
 }
 
-.post-details {
-    float: right;
-    margin-left: 1em;
-    margin-bottom: 1em;
+@media (min-width: 451px) {
+    .post-details {
+        float: right;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
 }
 .post-details td, .post-details th {
     border: 1px solid grey;
@@ -126,24 +128,24 @@ td, th {
 
 .tags {
     padding: 0;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin: 0;
 }
 .tags li {
-    display: inline;
+    display: inline-block;
 }
 .tag, .tags li, .article-count {
     color: rgba(0, 0, 0, 0.6);
     background-color: rgba(0, 0, 0, 0.1);
     font-size: 90%;
     padding: 0.25em 0.5em;
-    margin: 0.15em;
 }
 .tags li:hover {
     background-color: rgba(0, 0, 0, 0.15);
 }
 .tag, .tags li {
     border-radius: 10%;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
 }
 .article-count {
     border-radius: 100%;

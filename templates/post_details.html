@@ -2,13 +2,13 @@
     <tr>
         <td>Published</td>
         <td><time class="published" datetime="{{ article.date.isoformat() }}">
-            {{ article.locale_date }}</time></td>
+            {{ article.date.strftime('%d %b %Y') }}</time></td>
     </tr>
 {% if article.modified %}
     <tr>
         <td>Modified</td>
         <td><time class="modified" datetime="{{ article.modified.isoformat() }}">
-            {{ article.locale_modified }}</time></td>
+            {{ article.modified.strftime('%d %b %Y') }}</time></td>
     </tr>
 {% endif %}
 {% if USE_CATEGORIES and article.category %}
