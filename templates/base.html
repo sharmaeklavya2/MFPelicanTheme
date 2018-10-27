@@ -12,47 +12,47 @@
 <body>
 
 <div id="sidebar">
-    <div>
+    <div class="primary">
         <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
-        <ul>
-        {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-            {% for p in pages %}
-                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-            {% endfor %}
-        {% endif %}
-        </ul>
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-        <p class="sidebar-label"> Categories </p>
-        <ul>
-            {% for cat, articles in categories %}
-            <a href="{{ SITEURL }}/{{ cat.url }}">
-                <li{% if cat == category %} class="active"{% endif %}>
-                {{ cat }} ({{ articles|count }})
-                </li>
-            </a>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% if DISPLAY_TAGS_ON_MENU %}
-        <p class="sidebar-label"> Tags </p>
-        <ul>
-            {% for tag, articles in tags %}
-            <a href="{{ SITEURL }}/{{ tag.url }}">
-                <li> {{ tag }} ({{ articles|count }}) </li>
-            </a>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        <label for="sidebar-checkbox" class="collapsor-lbl"> &equiv; </label>
     </div>
-
-    <footer id="contentinfo">
-        <address id="about">
-        Powered by <a href="http://getpelican.com/">Pelican</a>.
-        </address><!-- /#about -->
-    </footer><!-- /#contentinfo -->
+    <div class="focus-capturer" tabindex="0">
+        <input id="sidebar-checkbox" class="collapsor" type="checkbox" />
+        <div class="collapsible">
+            <ul>
+            {% for title, link in MENUITEMS %}
+                <a href="{{ link }}"><li>{{ title }}</li></a>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages %}
+                    <a href="{{ SITEURL }}/{{ p.url }}"><li{% if p == page %} class="active"{% endif %}>{{ p.title }}</li></a>
+                {% endfor %}
+            {% endif %}
+            </ul>
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+            <p class="sidebar-label"> Categories </p>
+            <ul>
+                {% for cat, articles in categories %}
+                <a href="{{ SITEURL }}/{{ cat.url }}">
+                    <li{% if cat == category %} class="active"{% endif %}>
+                    {{ cat }} ({{ articles|count }})
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if DISPLAY_TAGS_ON_MENU %}
+            <p class="sidebar-label"> Tags </p>
+            <ul>
+                {% for tag, articles in tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">
+                    <li> {{ tag }} <span class="article-count">{{ articles|count }}</span></li>
+                </a>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 <div id="main">
