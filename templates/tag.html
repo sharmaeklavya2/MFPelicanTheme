@@ -1,5 +1,7 @@
 {% extends "index.html" %}
 
+{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+
 {% block head %}
     {{ super() }}
     <meta name="description" content="Articles related to {{tag}} on {{SITENAME}}." />

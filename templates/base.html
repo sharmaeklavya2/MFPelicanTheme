@@ -2,11 +2,11 @@
 <html{% if DEFAULT_LANG %} lang="{{ DEFAULT_LANG }}"{% endif %}>
 <head>
     {% block head %}
-    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/base.css" />
-    {% endblock head%}
+    {% endblock head %}
 </head>
 
 <body>
