@@ -10,7 +10,7 @@ body {
     padding-right: 1em;
     flex: 1;
 }
-#sidebar {
+nav {
     background-color: rgba(0, 0, 0, 0.1);
 }
 #post-list {
@@ -18,27 +18,27 @@ body {
     list-style: none;
 }
 
-#sitetitle, #sidebar p, #sidebar li a, #sidebar .collapsor-lbl {
+#sitetitle, nav p, nav li a, nav .collapsor-lbl {
     margin: 0;
     padding: 0.5rem 1rem;
 }
-#sidebar li a {
+nav li a {
     display: block;
 }
 #sitetitle {
     display: block;
     font-size: 2em;
 }
-#sidebar p {
+nav p {
     font-weight: bold;
     font-size: 1.2em;
 }
-#sidebar ul {
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-#sidebar li a:hover {
+nav li a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 

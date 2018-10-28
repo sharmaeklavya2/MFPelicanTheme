@@ -13,12 +13,12 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body">
+<article id="content" class="body">
     <h1 class="entry-title">{{ article.title }}</h1>
     {% include 'post_details.html' %}
 
     <div class="entry-content">
         {{ article.content }}
     </div>
-</section>
+</article>
 {% endblock %}
