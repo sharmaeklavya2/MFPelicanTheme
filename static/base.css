@@ -18,14 +18,15 @@ body {
     list-style: none;
 }
 
-#sidebar h1, #sidebar p, #sidebar li a, #sidebar .collapsor-lbl {
+#sitetitle, #sidebar p, #sidebar li a, #sidebar .collapsor-lbl {
     margin: 0;
     padding: 0.5rem 1rem;
 }
 #sidebar li a {
     display: block;
 }
-#sidebar h1 {
+#sitetitle {
+    display: block;
     font-size: 2em;
 }
 #sidebar p {
@@ -69,7 +70,7 @@ body {
     .collapsor-lbl {
         font-size: 2em;
     }
-    h1, .collapsor-lbl {
+    #sitetitle, .collapsor-lbl {
         display: block;
     }
     .collapsible {
