@@ -21,11 +21,11 @@
         <div class="collapsible">
             <ul>
             {% for title, link in MENUITEMS %}
-                <a href="{{ link }}"><li>{{ title }}</li></a>
+                <li><a href="{{ link }}">{{ title }}</a></li>
             {% endfor %}
             {% if DISPLAY_PAGES_ON_MENU %}
                 {% for p in pages %}
-                    <a href="{{ SITEURL }}/{{ p.url }}"><li{% if p == page %} class="active"{% endif %}>{{ p.title }}</li></a>
+                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
             {% endif %}
             </ul>
@@ -33,11 +33,9 @@
             <p class="sidebar-label"> Categories </p>
             <ul>
                 {% for cat, articles in categories %}
-                <a href="{{ SITEURL }}/{{ cat.url }}">
-                    <li{% if cat == category %} class="active"{% endif %}>
-                    {{ cat }} ({{ articles|count }})
-                    </li>
-                </a>
+                <li{% if cat == category %} class="active"{% endif %}>
+                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }} ({{ articles|count }})</a>
+                </li>
                 {% endfor %}
             </ul>
             {% endif %}
@@ -45,9 +43,11 @@
             <p class="sidebar-label"> Tags </p>
             <ul>
                 {% for tag, articles in tags %}
-                <a href="{{ SITEURL }}/{{ tag.url }}">
-                    <li> {{ tag }} <span class="article-count">{{ articles|count }}</span></li>
-                </a>
+                <li>
+                    <a href="{{ SITEURL }}/{{ tag.url }}">
+                    {{ tag }} <span class="article-count">{{ articles|count }}</span>
+                    </a>
+                </li>
                 {% endfor %}
             </ul>
             {% endif %}

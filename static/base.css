@@ -18,9 +18,12 @@ body {
     list-style: none;
 }
 
-#sidebar h1, #sidebar p, #sidebar li, #sidebar .collapsor-lbl {
+#sidebar h1, #sidebar p, #sidebar li a, #sidebar .collapsor-lbl {
     margin: 0;
     padding: 0.5rem 1rem;
+}
+#sidebar li a {
+    display: block;
 }
 #sidebar h1 {
     font-size: 2em;
@@ -34,7 +37,7 @@ body {
     padding: 0;
     margin: 0;
 }
-#sidebar li:hover {
+#sidebar li a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -130,19 +133,19 @@ td, th {
     padding: 0;
     margin: 0;
 }
-.tags li {
+.tags li, .tags li a {
     display: inline-block;
 }
-.tag, .tags li, .article-count {
+.tag, .tags li a, .article-count {
     color: rgba(0, 0, 0, 0.6);
     background-color: rgba(0, 0, 0, 0.1);
     font-size: 90%;
     padding: 0.25em 0.5em;
 }
-.tags li:hover {
+.tags li a:hover {
     background-color: rgba(0, 0, 0, 0.15);
 }
-.tag, .tags li {
+.tag, .tags li a {
     border-radius: 10%;
     margin-top: 0.1em;
     margin-bottom: 0.1em;
