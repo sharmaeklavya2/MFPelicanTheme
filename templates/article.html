@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% block head %}
     {{ super() }}
-    {% if article.description %}
-        <meta name="description" content="{{article.description}}" />
+    {% if article.summary %}
+    <meta name="description" content="{{ article.summary|striptags }}" />
     {% endif %}
-
-    {% for tag in article.tags %}
-        <meta name="tag" content="{{tag}}" />
-    {% endfor %}
-
+    {% if article.tags %}
+    <meta name="keywords" content="{{ article.tags|join(',') }}" />
+    {% endif %}
 {% endblock %}
 
 {% block content %}
