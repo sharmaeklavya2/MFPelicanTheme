@@ -2,8 +2,7 @@
 
 {% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
 
-{% block head %}
-    {{ super() }}
+{% block metadata %}
     <meta name="description" content="Articles related to {{tag}} on {{SITENAME}}." />
     <meta name="keywords" content="{{tag}}" />
 {% endblock %}

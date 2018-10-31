@@ -2,8 +2,7 @@
 
 {% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
 
-{% block head %}
-    {{ super() }}
+{% block metadata %}
     {% if article.summary %}
     <meta name="description" content="{{ article.summary|striptags }}" />
     {% endif %}
