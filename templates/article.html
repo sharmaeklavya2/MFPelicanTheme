@@ -3,8 +3,8 @@
 {% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
 
 {% block metadata %}
-    {% if article.summary %}
-    <meta name="description" content="{{ article.summary|striptags }}" />
+    {% if article.summary or DESCRIPTION %}
+    <meta name="description" content="{{ article.summary|striptags|default(DESCRIPTION, true) }}" />
     {% endif %}
     {% if article.tags %}
     <meta name="keywords" content="{{ article.tags|join(',') }}" />
