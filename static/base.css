@@ -42,7 +42,7 @@ nav li a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.collapsor {
+nav .collapsor {
     display: none;
 }
 
@@ -51,7 +51,7 @@ nav li a:hover {
         min-height: 100vh;
         align-items: stretch;
     }
-    .collapsor-lbl {
+    nav .collapsor-lbl {
         display: none;
     }
 }
@@ -64,19 +64,19 @@ nav li a:hover {
         justify-content: space-between;
         align-items: center;
     }
-    .focus-capturer {
+    nav .focus-capturer {
         flex: 1;
     }
-    .collapsor-lbl {
+    nav .collapsor-lbl {
         font-size: 2em;
     }
-    #sitetitle, .collapsor-lbl {
+    #sitetitle, nav .collapsor-lbl {
         display: block;
     }
-    .collapsible {
+    nav .collapsible {
         display: none;
     }
-    .focus-capturer:focus-within .collapsible, .collapsor:checked ~ .collapsible {
+    nav .focus-capturer:focus-within .collapsible, nav .collapsor:checked ~ .collapsible {
         display: block;
     }
 }
