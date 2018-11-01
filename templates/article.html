@@ -11,6 +11,14 @@
     {% endif %}
 {% endblock %}
 
+{% block head %}{{ super() }}
+    {% if article.extracss %}
+    {% for cssfile in article.extracss.split(',') %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{cssfile.strip()}}" />
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <article id="content" class="body">
     <h1 class="entry-title">{{ article.title }}</h1>
