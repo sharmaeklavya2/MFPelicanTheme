@@ -154,3 +154,15 @@ td, th {
 .article-count {
     border-radius: 100%;
 }
+
+blockquote {
+    margin: 0;
+    padding-left: 1em;
+    border-left: 0.1em solid silver;
+}
+blockquote footer {
+    text-align: right;
+}
+blockquote footer::before {
+    content: "\2014 ";
+}
