@@ -4,6 +4,19 @@ html {
 body {
     margin: 0;
     display: flex;
+    color: #202020;
+    line-height: 1.4;
+    font-size: 1.1em;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+article h2 {
+    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+    padding-bottom: 0.2em;
 }
 #main {
     padding-left: 1em;
@@ -45,8 +58,11 @@ nav li a:hover {
 nav .collapsor {
     display: none;
 }
+nav .collapsor-lbl:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
     body {
         min-height: 100vh;
         align-items: stretch;
@@ -55,7 +71,7 @@ nav .collapsor {
         display: none;
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     body {
         flex-direction: column;
     }
@@ -81,11 +97,15 @@ nav .collapsor {
     }
 }
 
-@media (min-width: 451px) {
+@media (min-width: 601px) {
     .post-details {
         float: right;
         margin-left: 1em;
         margin-bottom: 1em;
+    }
+    #main > article {
+        margin-left: 1em;
+        margin-right: 1em;
     }
 }
 .post-details td, .post-details th {
@@ -147,7 +167,7 @@ td, th {
     background-color: rgba(0, 0, 0, 0.15);
 }
 .tag, .tags li a {
-    border-radius: 10%;
+    border-radius: 0.4em;
     margin-top: 0.1em;
     margin-bottom: 0.1em;
 }
@@ -168,6 +188,7 @@ blockquote footer::before {
 }
 .codehilite pre {
     background-color: rgba(0, 0, 0, 0.02);
+    padding: 0.8em;
 }
 code {
     background-color: rgba(0, 0, 0, 0.05);
