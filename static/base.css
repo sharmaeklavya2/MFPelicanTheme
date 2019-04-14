@@ -60,6 +60,7 @@ nav .collapsor {
 }
 nav .collapsor-lbl:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 @media (min-width: 1001px) {
@@ -112,11 +113,8 @@ nav .collapsor-lbl:hover {
     border: 1px solid grey;
 }
 
-a {
+nav a, a:not(:hover) {
     text-decoration: none;
-}
-.entry-content a:hover {
-    text-decoration: underline;
 }
 
 .card {
@@ -141,6 +139,7 @@ a {
 }
 .read-more:hover {
     background-color: rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 table {
     border-collapse: collapse;
@@ -165,6 +164,7 @@ td, th {
 }
 .tags li > a:hover {
     background-color: rgba(0, 0, 0, 0.15);
+    text-decoration: none;
 }
 .tag, .tags li > a {
     border-radius: 0.4em;
