@@ -31,11 +31,11 @@ nav {
     list-style: none;
 }
 
-#sitetitle, nav p, nav li a, nav .collapsor-lbl {
+#sitetitle, nav p, nav li > a, nav .collapsor-lbl {
     margin: 0;
     padding: 0.5rem 1rem;
 }
-nav li a {
+nav li > a {
     display: block;
 }
 #sitetitle {
@@ -51,7 +51,7 @@ nav ul {
     padding: 0;
     margin: 0;
 }
-nav li a:hover {
+nav li > a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -154,19 +154,19 @@ td, th {
     padding: 0;
     margin: 0;
 }
-.tags li, .tags li a {
+.tags li, .tags li > a {
     display: inline-block;
 }
-.tag, .tags li a, .article-count {
+.tag, .tags li > a, .article-count {
     color: rgba(0, 0, 0, 0.6);
     background-color: rgba(0, 0, 0, 0.1);
     font-size: 90%;
     padding: 0.25em 0.5em;
 }
-.tags li a:hover {
+.tags li > a:hover {
     background-color: rgba(0, 0, 0, 0.15);
 }
-.tag, .tags li a {
+.tag, .tags li > a {
     border-radius: 0.4em;
     margin-top: 0.1em;
     margin-bottom: 0.1em;
