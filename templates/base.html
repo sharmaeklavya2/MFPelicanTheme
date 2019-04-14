@@ -30,8 +30,31 @@
             {% endfor %}
             {% if DISPLAY_PAGES_ON_MENU %}
                 {% for p in pages %}
-                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
+            {% endif %}
+            {% if FEED_ALL_RSS or FEED_ALL_ATOM %}
+                <li><ul class="tags">
+                    <li>Feed:</li>
+                {% if FEED_ALL_RSS %}
+                    <li>
+                    <a type="application/rss+xml" rel="alternate" class="hori-flex"
+                        href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">
+                        <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-rss-square"/></svg>
+                        <span>RSS</span>
+                    </a>
+                    </li>
+                {% endif %}
+                {% if FEED_ALL_ATOM %}
+                    <li>
+                    <a type="application/atom+xml" rel="alternate" class="hori-flex"
+                        href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
+                        <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-rss-square"/></svg>
+                        <span>Atom</span>
+                    </a>
+                    </li>
+                {% endif %}
+                </ul></li>
             {% endif %}
             </ul>
             {% if DISPLAY_CATEGORIES_ON_MENU %}
