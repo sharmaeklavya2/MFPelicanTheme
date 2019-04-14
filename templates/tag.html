@@ -8,5 +8,17 @@
 {% endblock %}
 
 {% block content_title %}
+<div class="tag-title-container">
 <h2>Articles with the tag <span class="tag">{{ tag }}</span></h2>
+{% if TAG_FEED_RSS or TAG_FEED_ATOM %}
+<ul class="tags">
+    {% if TAG_FEED_RSS %}
+        {{ feed_tag(FEED_DOMAIN, TAG_FEED_RSS % tag.slug, 'RSS', 'rss', 'fa-rss-square') }}
+    {% endif %}
+    {% if TAG_FEED_ATOM %}
+        {{ feed_tag(FEED_DOMAIN, TAG_FEED_ATOM % tag.slug, 'Atom', 'atom', 'fa-rss-square') }}
+    {% endif %}
+</ul>
+{% endif %}
+</div>
 {% endblock %}

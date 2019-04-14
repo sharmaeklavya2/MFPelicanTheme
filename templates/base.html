@@ -16,6 +16,15 @@
 
 <body>
 
+{% macro feed_tag(feed_domain, feed_name, text, type, icon) %}
+<li>
+<a type="application/type+xml" rel="alternate" class="hori-flex" href="{{ feed_domain }}/{{ feed_name }}">
+    <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#{{ icon}}"/></svg>
+    <span>{{ text }}</span>
+</a>
+</li>
+{% endmacro %}
+
 <nav>
     <div class="primary">
         <a id="sitetitle" href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
@@ -37,22 +46,10 @@
                 <li><ul class="tags">
                     <li>Feed:</li>
                 {% if FEED_ALL_RSS %}
-                    <li>
-                    <a type="application/rss+xml" rel="alternate" class="hori-flex"
-                        href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">
-                        <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-rss-square"/></svg>
-                        <span>RSS</span>
-                    </a>
-                    </li>
+                    {{ feed_tag(FEED_DOMAIN, FEED_ALL_RSS, 'RSS', 'rss', 'fa-rss-square') }}
                 {% endif %}
                 {% if FEED_ALL_ATOM %}
-                    <li>
-                    <a type="application/atom+xml" rel="alternate" class="hori-flex"
-                        href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
-                        <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-rss-square"/></svg>
-                        <span>Atom</span>
-                    </a>
-                    </li>
+                    {{ feed_tag(FEED_DOMAIN, FEED_ALL_ATOM, 'Atom', 'atom', 'fa-rss-square') }}
                 {% endif %}
                 </ul></li>
             {% endif %}

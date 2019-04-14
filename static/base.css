@@ -215,3 +215,12 @@ code {
 nav .tags {
     padding: 0.25rem 1rem;
 }
+.tag-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.tag-title-container > .tags {
+    font-size: 1.2em;
+}
