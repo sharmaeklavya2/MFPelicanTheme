@@ -13,10 +13,10 @@
 {% if TAG_FEED_RSS or TAG_FEED_ATOM %}
 <ul class="tags">
     {% if TAG_FEED_RSS %}
-        {{ feed_tag(FEED_DOMAIN, TAG_FEED_RSS % tag.slug, 'RSS', 'rss', 'fa-rss-square') }}
+        {{ feed_tag(FEED_DOMAIN, TAG_FEED_RSS.format(slug=tag.slug) , 'RSS', 'rss', 'fa-rss-square') }}
     {% endif %}
     {% if TAG_FEED_ATOM %}
-        {{ feed_tag(FEED_DOMAIN, TAG_FEED_ATOM % tag.slug, 'Atom', 'atom', 'fa-rss-square') }}
+        {{ feed_tag(FEED_DOMAIN, TAG_FEED_ATOM.format(slug=tag.slug), 'Atom', 'atom', 'fa-rss-square') }}
     {% endif %}
 </ul>
 {% endif %}
