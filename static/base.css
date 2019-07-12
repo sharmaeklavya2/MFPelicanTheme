@@ -8,6 +8,10 @@ body {
     line-height: 1.4;
     font-size: 1.1em;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: initial;
+}
 h1 {
     font-size: 2em;
 }
@@ -207,6 +211,7 @@ blockquote footer::before {
 .codehilite pre {
     background-color: rgba(0, 0, 0, 0.02);
     padding: 0.8em;
+    overflow-x: auto;
 }
 code {
     background-color: rgba(0, 0, 0, 0.05);
