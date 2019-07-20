@@ -4,28 +4,27 @@
 
 {% block metadata %}
     {% if article.summary or DESCRIPTION %}
-    <meta name="description" content="{{ article.summary|striptags|default(DESCRIPTION, true) }}" />
+<meta name="description" content="{{ article.summary|striptags|default(DESCRIPTION, true) }}" />
     {% endif %}
     {% if article.tags %}
-    <meta name="keywords" content="{{ article.tags|join(',') }}" />
+<meta name="keywords" content="{{ article.tags|join(',') }}" />
     {% endif %}
 {% endblock %}
 
-{% block head %}{{ super() }}
-    {% if article.extracss %}
-    {% for cssfile in article.extracss.split(',') %}
-    <link rel="stylesheet" href="{{ SITEURL }}/{{cssfile.strip()}}" />
-    {% endfor %}
-    {% endif %}
+{% block head %}{{ super() }}{% if article.extracss %}
+{% for cssfile in article.extracss.split(',') %}
+<link rel="stylesheet" href="{{ SITEURL }}/{{cssfile.strip()}}" />
+{% endfor %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
 <article id="content" class="body">
-    <h1 class="entry-title">{{ article.title }}</h1>
-    {% include 'post_details.html' %}
+<h1 class="entry-title">{{ article.title }}</h1>
+{% include 'post_details.html' %}
 
-    <div class="entry-content">
-        {{ article.content }}
-    </div>
+<div class="entry-content">
+{{ article.content }}
+</div>
 </article>
 {% endblock %}

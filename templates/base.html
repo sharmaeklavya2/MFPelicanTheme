@@ -1,89 +1,79 @@
 <!DOCTYPE html>
 <html{% if DEFAULT_LANG %} lang="{{ DEFAULT_LANG }}"{% endif %}>
 <head>
-    {% block head %}
-    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/base.css" />
-    {% block metadata %}
+{% block head %}
+<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="{{ SITEURL }}/theme/base.css" />
+{% block metadata %}
     {% if DESCRIPTION %}
-    <meta name="description" content="{{ DESCRIPTION }}" />
+<meta name="description" content="{{ DESCRIPTION }}" />
     {% endif %}
-    {% endblock %}
-    {% endblock head %}
+{% endblock %}
+{% endblock head -%}
 </head>
+{% macro feed_tag(feed_domain, feed_name, text, type, icon) %}
+<li><a type="application/type+xml" rel="alternate" class="hori-flex" href="{{ feed_domain }}/{{ feed_name }}">
+<svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#{{ icon}}"/></svg><span>{{ text }}</span>
+</a></li>
+{%- endmacro %}
 
 <body>
-
-{% macro feed_tag(feed_domain, feed_name, text, type, icon) %}
-<li>
-<a type="application/type+xml" rel="alternate" class="hori-flex" href="{{ feed_domain }}/{{ feed_name }}">
-    <svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#{{ icon}}"/></svg>
-    <span>{{ text }}</span>
-</a>
-</li>
-{% endmacro %}
-
 <nav>
-    <div class="primary">
-        <a id="sitetitle" href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
-        <label for="nav-checkbox" class="collapsor-lbl"> &equiv; </label>
-    </div>
-    <div class="focus-capturer" tabindex="0">
-        <input id="nav-checkbox" class="collapsor" type="checkbox" />
-        <div class="collapsible">
-            <ul>
-            {% for title, link in MENUITEMS %}
-                <li><a href="{{ link }}">{{ title }}</a></li>
-            {% endfor %}
-            {% if DISPLAY_PAGES_ON_MENU %}
-                {% for p in pages %}
-                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-                {% endfor %}
-            {% endif %}
-            {% if FEED_ALL_RSS or FEED_ALL_ATOM %}
-                <li><ul class="tags">
-                    <li>Feed:</li>
-                {% if FEED_ALL_RSS %}
-                    {{ feed_tag(FEED_DOMAIN, FEED_ALL_RSS, 'RSS', 'rss', 'fa-rss-square') }}
-                {% endif %}
-                {% if FEED_ALL_ATOM %}
-                    {{ feed_tag(FEED_DOMAIN, FEED_ALL_ATOM, 'Atom', 'atom', 'fa-rss-square') }}
-                {% endif %}
-                </ul></li>
-            {% endif %}
-            </ul>
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-            <p> Categories </p>
-            <ul>
-                {% for cat, articles in categories %}
-                <li{% if cat == category %} class="active"{% endif %}>
-                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }} ({{ articles|count }})</a>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if DISPLAY_TAGS_ON_MENU %}
-            <p> Tags </p>
-            <ul>
-                {% for tag, articles in tags %}
-                <li>
-                    <a href="{{ SITEURL }}/{{ tag.url }}">
-                    {{ tag }} <span class="article-count">{{ articles|count }}</span>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-    </div>
+<div class="primary">
+<a id="sitetitle" href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
+<label for="nav-checkbox" class="collapsor-lbl">&equiv;</label>
+</div>
+<div class="focus-capturer" tabindex="0">
+<input id="nav-checkbox" class="collapsor" type="checkbox" />
+<div class="collapsible">
+<ul>
+{% for title, link in MENUITEMS %}
+<li><a href="{{ link }}">{{ title }}</a></li>
+{% endfor %}
+{% if DISPLAY_PAGES_ON_MENU %}
+    {% for p in pages %}
+<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+    {% endfor %}
+{% endif %}
+{% if FEED_ALL_RSS or FEED_ALL_ATOM %}
+<li><ul class="tags">
+<li>Feed:</li>
+    {% if FEED_ALL_RSS %}
+{{ feed_tag(FEED_DOMAIN, FEED_ALL_RSS, 'RSS', 'rss', 'fa-rss-square') }}
+    {% endif %}
+    {% if FEED_ALL_ATOM %}
+{{ feed_tag(FEED_DOMAIN, FEED_ALL_ATOM, 'Atom', 'atom', 'fa-rss-square') }}
+    {% endif %}
+</ul></li>
+{% endif %}
+</ul>
+{% if DISPLAY_CATEGORIES_ON_MENU %}
+<p>Categories</p>
+<ul>
+    {% for cat, articles in categories %}
+<li{% if cat == category %} class="active"{% endif %}>
+<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }} ({{ articles|count }})</a>
+</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if DISPLAY_TAGS_ON_MENU %}
+<p>Tags</p>
+<ul>
+    {% for tag, articles in tags %}
+<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}<span class="article-count">{{ articles|count }}</span></a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+</div>
 </nav>
 
 <div id="main">
 {% block content %}
 {% endblock %}
 </div>
-
 </body>
 </html>

@@ -1,44 +1,29 @@
 <table class="post-details">
-    <tr>
-        <td>Published</td>
-        <td><time class="published" datetime="{{ article.date.isoformat() }}">
-            {{ article.date.strftime('%d %b %Y') }}</time></td>
-    </tr>
+<tr><td>Published</td>
+<td><time class="published" datetime="{{ article.date.isoformat() }}">
+{{ article.date.strftime('%d %b %Y') }}</time></td></tr>
 {% if article.modified %}
-    <tr>
-        <td>Modified</td>
-        <td><time class="modified" datetime="{{ article.modified.isoformat() }}">
-            {{ article.modified.strftime('%d %b %Y') }}</time></td>
-    </tr>
+<tr><td>Modified</td>
+<td><time class="modified" datetime="{{ article.modified.isoformat() }}">
+{{ article.modified.strftime('%d %b %Y') }}</time></td></tr>
 {% endif %}
 {% if USE_CATEGORIES and article.category %}
-    <tr>
-        <td>Category</td>
-        <td>{{ article.category }}</td>
-    </tr>
+<tr><td>Category</td><td>{{ article.category }}</td></tr>
 {% endif %}
 {% if USE_TAGS and article.tags %}
-    <tr>
-        <td>Tags</td>
-        <td>
-            <ul class="tags">
-    {% for tag in article.tags %}
-                <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-    {% endfor %}
-            </ul>
-        </td>
-    </tr>
+<tr><td>Tags</td>
+<td><ul class="tags">
+{% for tag in article.tags %}
+<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+{% endfor %}
+</ul></td></tr>
 {% endif %}
 {% if SHOW_AUTHORS and article.authors %}
-    <tr>
-        <td>Authors</td>
-        <td>
-            <ul class="tags">
-    {% for author in article.authors %}
-                <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></li>
-    {% endfor %}
-            </ul>
-        </td>
-    </tr>
+<tr><td>Authors</td>
+<td><ul class="tags">
+{% for author in article.authors %}
+<li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></li>
+{% endfor %}
+</ul></td></tr>
 {% endif %}
 </table>
