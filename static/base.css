@@ -118,6 +118,7 @@ nav .collapsor-lbl:hover {
 
 @media (min-width: 601px) {
     .post-details {
+        max-width: 360px;
         float: right;
         margin-left: 1em;
         margin-bottom: 1em;
