@@ -13,7 +13,11 @@
 
 {% block head %}{{ super() }}{% if article.extracss %}
 {% for cssfile in article.extracss.split(',') %}
+{% if cssfile.strip().startswith('http') %}
+<link rel="stylesheet" href="{{cssfile.strip()}}" />
+{% else %}
 <link rel="stylesheet" href="{{ SITEURL }}/{{cssfile.strip()}}" />
+{% endif %}
 {% endfor %}
 {% endif %}
 {% endblock %}
