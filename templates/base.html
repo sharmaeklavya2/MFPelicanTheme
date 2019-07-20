@@ -63,7 +63,7 @@
 <p>Tags</p>
 <ul>
     {% for tag, articles in tags %}
-<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}<span class="article-count">{{ articles|count }}</span></a></li>
+<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} <span class="article-count">{{ articles|count }}</span></a></li>
     {% endfor %}
 </ul>
 {% endif %}
