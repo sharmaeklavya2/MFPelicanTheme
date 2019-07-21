@@ -20,6 +20,14 @@
         {% endif %}
     {% endfor %}
 {% endif %}
+{% if article.mathengine == 'mathjax' %}
+    {% if MATH_JAX and MATH_JAX.url %}
+        {% if MATH_JAX.hub_config %}
+<script type="text/x-mathjax-config">MathJax.Hub.Config({{ MATH_JAX.hub_config|tojson }});</script>
+        {% endif %}
+<script type="text/javascript" async="async" src="{{ MATH_JAX.url }}"></script>
+    {% endif %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
