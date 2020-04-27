@@ -209,13 +209,17 @@ blockquote footer {
 blockquote footer::before {
     content: "\2014 ";
 }
+code {
+    background-color: rgba(0, 0, 0, 0.05);
+}
 .codehilite pre {
+    padding: 0;
+}
+.codehilite pre > code {
     background-color: rgba(0, 0, 0, 0.02);
     padding: 0.8em;
     overflow-x: auto;
-}
-code {
-    background-color: rgba(0, 0, 0, 0.05);
+    display: block;
 }
 
 .tags .icon {
