@@ -293,3 +293,6 @@ h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .he
     margin: 0;
     padding-left: 1.1em;
 }
+div.math {
+    overflow-x: auto;
+}
