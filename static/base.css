@@ -14,11 +14,40 @@ main {
     main {padding: 0 5vw;}
 }
 
+/* colors */
+body {
+    --text-color: #202020;
+    --emph-color: black;
+    --very-light-tint: rgba(0, 0, 0, 0.02);
+    --light-tint: rgba(0, 0, 0, 0.05);
+    --medium-tint: rgba(0, 0, 0, 0.1);
+    --heavy-tint: rgba(0, 0, 0, 0.2);
+}
+a {color: rgb(3, 102, 214);}
+a:visited {color: rgb(100, 0, 150);}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: rgb(27, 30, 32);
+        --text-color: rgb(192, 192, 192);
+        --emph-color: rgb(220, 220, 220);
+        --link-color: rgb(65, 175, 235);
+        --very-light-tint: rgba(255, 255, 255, 0.02);
+        --light-tint: rgba(255, 255, 255, 0.05);
+        --medium-tint: rgba(255, 255, 255, 0.1);
+        --heavy-tint: rgba(255, 255, 255, 0.2);
+    }
+    a {color: rgb(65, 175, 235);}
+    a:visited {color: rgb(150, 100, 230);}
+    img {
+        filter: brightness(.8) contrast(1.2);
+    }
+}
+
 /* header */
 header {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--light-tint);
 }
 header .primary {
     display: flex;
@@ -38,20 +67,20 @@ header .primary {
 }
 #nav-collapsor:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--medium-tint);
 }
 #nav-collapsor:active {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--heavy-tint);
 }
 nav {
     display: flex;
     flex-direction: column;
 }
-nav a {
+nav > a {
     text-decoration: none;
 }
 nav a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--light-tint);
 }
 nav > a, nav > span {
     padding: 0.5rem 5vw;
@@ -71,8 +100,8 @@ nav > a, nav > span {
 .feed-widget, .article-count {
     padding: 0.2em 0.4em;
     font-size: 90%;
-    color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.05);
+    color: #888;
+    background-color: var(--light-tint);
 }
 .article-count {
     border-radius: 100%;
@@ -99,10 +128,10 @@ nav > .nav-heading {
     padding: 1rem 0;
 }
 #post-list > li:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #888;
 }
 .toc {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--light-tint);
     padding: 1em;
 }
 .toctitle {
@@ -128,6 +157,9 @@ nav > .nav-heading {
     display: inline-block;
     width: 1.2em;
     height: 1.2em;
+}
+svg.icon {
+    fill: var(--text-color);
 }
 .hori-link-list {
     padding: 0;
@@ -161,7 +193,7 @@ html {
     font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Open Sans", "Helvetica Neue", sans-serif;
 }
 body {
-    color: #202020;
+    color: var(--text-color);
     line-height: 1.4;
     font-size: 1.1em;
 }
@@ -179,7 +211,7 @@ h2 {
     font-size: 1.5em;
 }
 article h2 {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--light-tint);
     padding-bottom: 0.2em;
 }
 h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .headerlink {
@@ -188,13 +220,16 @@ h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .he
 .headerlink {
     margin-left: 0.2em;
     text-decoration: none;
-    color: gray;
+    color: #888;
+}
+em {
+    color: var(--emph-color);
 }
 table {
     border-collapse: collapse;
 }
 td, th {
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     padding: 0.1rem 0.5rem;
 }
 blockquote {
@@ -209,13 +244,13 @@ blockquote footer::before {
     content: "\2014 ";
 }
 code {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--light-tint);
 }
 .codehilite pre {
     padding: 0;
 }
 .codehilite pre > code {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: var(--very-light-tint);
     padding: 0.8em;
     overflow-x: auto;
     display: block;
@@ -226,7 +261,7 @@ figure {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--medium-tint);
 }
 figure > figcaption {
     text-align: center;
