@@ -1,29 +1,33 @@
-<table class="post-details">
-<tr><td>Published</td>
-<td><time class="published" datetime="{{ article.date.isoformat() }}">
-{{ article.date.strftime('%d %b %Y') }}</time></td></tr>
+<span class="post-details">
+<span class="post-date">
+<svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-calendar-alt"/></svg>
+<time class="published{% if article.modified %} outdated{% endif %}" datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%d %b %Y') }}</time>
 {% if article.modified %}
-<tr><td>Modified</td>
-<td><time class="modified" datetime="{{ article.modified.isoformat() }}">
-{{ article.modified.strftime('%d %b %Y') }}</time></td></tr>
+<time class="modified" datetime="{{ article.modified.isoformat() }}">
+{{ article.modified.strftime('%d %b %Y') }}</time>
 {% endif %}
+</span>
 {% if USE_CATEGORIES and article.category %}
-<tr><td>Category</td><td>{{ article.category }}</td></tr>
+<span class="post-category">{{ article.category }}</span>
 {% endif %}
 {% if USE_TAGS and article.tags %}
-<tr><td>Tags</td>
-<td><ul class="tags">
+<span class="post-tags">
+<svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-tags"/></svg>
+<ul class="hori-link-list">
     {% for tag in article.tags %}
 <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
     {% endfor %}
-</ul></td></tr>
+</ul>
+</span>
 {% endif %}
 {% if SHOW_AUTHORS and article.authors %}
-<tr><td>Authors</td>
-<td><ul class="tags">
+<span class="post-authors">
+<span>by</span>
+<ul class="hori-link-list">
     {% for author in article.authors %}
 <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></li>
     {% endfor %}
-</ul></td></tr>
+</ul>
+</span>
 {% endif %}
-</table>
+</span>

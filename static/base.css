@@ -129,7 +129,7 @@ nav > .nav-heading {
     width: 1.2em;
     height: 1.2em;
 }
-.tags {
+.hori-link-list {
     padding: 0;
     margin: 0;
     display: flex;
@@ -137,9 +137,23 @@ nav > .nav-heading {
     flex-wrap: wrap;
     list-style: none;
 }
-.tags > li:not(:last-child)::after {
+.hori-link-list > li:not(:last-child)::after {
     content: ", ";
     white-space: pre;
+}
+.post-details {
+    display: flex;
+    align-items: center;
+}
+.post-details > *, .post-details > * > * {
+    display: inline-flex;
+    align-items: center;
+}
+.post-details > *:not(:last-child) {
+    margin-right: 1rem;
+}
+.post-details > * > *:not(:last-child) {
+    margin-right: 0.4rem;
 }
 
 /* generic */
@@ -231,4 +245,7 @@ figure img {
 }
 div.math {
     overflow-x: auto;
+}
+time.outdated {
+    text-decoration: line-through;
 }
