@@ -3,16 +3,11 @@
 {% block content_title %}{% endblock %}
 <ol id="post-list">
 {% for article in articles_page.object_list %}
-<li><article class="hentry card">
-<header><h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" >
-{{ article.title }}</a></h2></header>
+<li>
+<h2><a href="{{ SITEURL }}/{{ article.url }}" >{{ article.title }}</a></h2>
 {% include 'post_details.html' %}
-
-<div class="entry-content">
-{{ article.summary }}
-</div>
-<a class="read-more" href="{{ SITEURL }}/{{ article.url }}">Read full post</a>
-</article></li>
+<div class="entry-content">{{ article.summary }}</div>
+</li>
 {% endfor %}
 </ol>
 {% if articles_page.has_other_pages() %}

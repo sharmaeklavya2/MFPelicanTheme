@@ -9,16 +9,16 @@
 
 {% block content_title %}
 <div class="tag-title-container">
-<h2>Articles with the tag <span class="tag">{{ tag }}</span></h2>
+<h1>Articles tagged &lsquo;<span class="tag">{{ tag }}</span>&rsquo;</h1>
 {% if TAG_FEED_RSS or TAG_FEED_ATOM %}
-<ul class="tags">
+<span class="feed-group">
     {% if TAG_FEED_RSS %}
 {{ feed_tag(FEED_DOMAIN, TAG_FEED_RSS.format(slug=tag.slug) , 'RSS', 'rss', 'fa-rss-square') }}
     {% endif %}
     {% if TAG_FEED_ATOM %}
 {{ feed_tag(FEED_DOMAIN, TAG_FEED_ATOM.format(slug=tag.slug), 'Atom', 'atom', 'fa-rss-square') }}
     {% endif %}
-</ul>
+</span>
 {% endif %}
 </div>
 {% endblock %}

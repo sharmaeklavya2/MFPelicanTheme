@@ -11,65 +11,63 @@
 <meta name="description" content="{{ DESCRIPTION }}" />
     {% endif %}
 {% endblock %}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', (event) => {
+    nav = document.getElementById('nav');
+    nav.classList.add('hidden');
+    collapsor = document.getElementById('nav-collapsor');
+    collapsor.addEventListener('click', (event) => {
+        nav.classList.toggle('hidden');
+    });
+});
+</script>
 {% endblock head -%}
 </head>
 {% macro feed_tag(feed_domain, feed_name, text, type, icon) %}
-<li><a type="application/type+xml" rel="alternate" class="hori-flex" href="{{ feed_domain }}/{{ feed_name }}">
-<svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#{{ icon}}"/></svg><span>{{ text }}</span>
-</a></li>
+<a type="application/type+xml" rel="alternate" class="feed-widget" href="{{ feed_domain }}/{{ feed_name }}">
+<svg class="icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#{{icon}}"/></svg><span>{{ text }}</span>
+</a>
 {%- endmacro %}
 
 <body>
-<nav>
+<header>
 <div class="primary">
 <a id="sitetitle" href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a>
-<label for="nav-checkbox" class="collapsor-lbl">&equiv;</label>
+<span id="nav-collapsor"><span>&equiv;</span></span>
 </div>
-<div class="focus-capturer" tabindex="0">
-<input id="nav-checkbox" class="collapsor" type="checkbox" />
-<div class="collapsible">
-<ul>
+<nav id="nav">
 {% for title, link in MENUITEMS %}
-<li><a href="{{ link }}">{{ title }}</a></li>
+<a href="{{ link }}">{{ title }}</a>
 {% endfor %}
 {% if DISPLAY_PAGES_ON_MENU %}
     {% for p in pages %}
-<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+<a{% if p == page %} class="active"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
     {% endfor %}
 {% endif %}
 {% if FEED_ALL_RSS or FEED_ALL_ATOM %}
-<li><ul class="tags">
-<li>Feed:</li>
+<span class="feed-group"><span>Feed:</span>
     {% if FEED_ALL_RSS %}
 {{ feed_tag(FEED_DOMAIN, FEED_ALL_RSS, 'RSS', 'rss', 'fa-rss-square') }}
     {% endif %}
     {% if FEED_ALL_ATOM %}
 {{ feed_tag(FEED_DOMAIN, FEED_ALL_ATOM, 'Atom', 'atom', 'fa-rss-square') }}
     {% endif %}
-</ul></li>
+</span>
 {% endif %}
-</ul>
 {% if DISPLAY_CATEGORIES_ON_MENU %}
-<p>Categories</p>
-<ul>
+<span class="nav-heading">Categories</span>
     {% for cat, articles in categories %}
-<li{% if cat == category %} class="active"{% endif %}>
-<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }} ({{ articles|count }})</a>
-</li>
+<a{% if cat == category %} class="active"{% endif %} href="{{ SITEURL }}/{{ cat.url }}">{{ cat }} ({{ articles|count }})</a>
     {% endfor %}
-</ul>
 {% endif %}
 {% if DISPLAY_TAGS_ON_MENU %}
-<p>Tags</p>
-<ul>
+<span class="nav-heading">Tags</span>
     {% for tag, articles in tags %}
-<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} <span class="article-count">{{ articles|count }}</span></a></li>
+<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} <span class="article-count">{{ articles|count }}</span></a>
     {% endfor %}
-</ul>
 {% endif %}
-</div>
-</div>
 </nav>
+</header>
 
 <main id="main">
 {% block content %}
