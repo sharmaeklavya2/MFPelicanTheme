@@ -284,3 +284,25 @@ div.math {
 time.outdated {
     text-decoration: line-through;
 }
+details {
+    border: 1px solid;
+    border-radius: 0.4rem;
+    padding: 0.5rem 0.8rem 0;
+    margin: 1em 0;
+}
+details > summary {
+    margin: -0.5rem -0.8rem 0;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    background-color: var(--light-tint);
+}
+details > summary:hover {
+    background-color: var(--medium-tint);
+}
+details[open] {
+    padding: 0.5rem 0.8rem;
+}
+details[open] > summary {
+    border-bottom: 1px solid;
+    margin-bottom: 0.5rem;
+}
