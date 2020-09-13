@@ -3,16 +3,19 @@
 <script type="text/x-mathjax-config">MathJax.Hub.Config({{ MATH_JAX.hub_config|tojson }});</script>
     {% endif %}
 <script type="text/javascript" async="async" src="{{ MATH_JAX.url }}"></script>
-{% elif article.mathengine == 'katex-half' %}
-<link rel="stylesheet" href="{{ KATEX.prefix }}/katex.min.css"{% if KATEX.style_integrity %} integrity="{{ KATEX.style_integrity }}"{% endif %} crossorigin="anonymous"{% if KATEX.defer_css %} media="print" onload="this.media='all'"{% endif %}/>
-    {% if KATEX.preload_fonts %}{% for font in KATEX.preload_fonts %}
-<link rel="preload" href="{{ KATEX.prefix }}/fonts/{{ font }}" as="font" type="font/woff2" crossorigin="anonymous" />
+{% endif %}
+{% if article.mathengine in ('katex-half', 'katex-full') %}
+<link rel="stylesheet" href="{{ KATEX_COMMON.prefix }}/katex.min.css"{% if KATEX_COMMON.style_integrity %} integrity="{{ KATEX_COMMON.style_integrity }}"{% endif %} crossorigin="anonymous"{% if KATEX_COMMON.defer_css %} media="print" onload="this.media='all'"{% endif %}/>
+    {% if KATEX_COMMON.preload_fonts %}{% for font in KATEX_COMMON.preload_fonts %}
+<link rel="preload" href="{{ KATEX_COMMON.prefix }}/fonts/{{ font }}" as="font" type="font/woff2" crossorigin="anonymous" />
     {% endfor %}{% endif %}
-<script defer src="{{ KATEX.prefix }}/katex.min.js"{% if KATEX.katex_js_integrity %} integrity="{{ KATEX.katex_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
-<script defer src="{{ KATEX.prefix }}/contrib/auto-render.min.js"{% if KATEX.auto_render_js_integrity %} integrity="{{ KATEX.auto_render_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
+{% endif %}
+{% if article.mathengine == 'katex-half' %}
+<script defer src="{{ KATEX_COMMON.prefix }}/katex.min.js"{% if KATEX_COMMON.katex_js_integrity %} integrity="{{ KATEX_COMMON.katex_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
+<script defer src="{{ KATEX_COMMON.prefix }}/contrib/auto-render.min.js"{% if KATEX_COMMON.auto_render_js_integrity %} integrity="{{ KATEX_COMMON.auto_render_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
 <script>
 window.addEventListener("load", function() {
-renderMathInElement(document.getElementById('main'), {{ KATEX.options|tojson }});
+renderMathInElement(document.getElementById('main'), {{ KATEX_COMMON.options|tojson }});
 });
 </script>
 {% endif %}
