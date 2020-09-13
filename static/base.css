@@ -176,6 +176,10 @@ svg.icon {
 .post-details {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+}
+.post-date {
+    flex-wrap: wrap;
 }
 .post-details > *, .post-details > * > * {
     display: inline-flex;
