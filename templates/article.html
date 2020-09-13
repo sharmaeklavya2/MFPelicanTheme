@@ -21,12 +21,22 @@
     {% endfor %}
 {% endif %}
 {% if article.mathengine == 'mathjax' %}
-    {% if MATH_JAX and MATH_JAX.url %}
-        {% if MATH_JAX.hub_config %}
+    {% if MATH_JAX.hub_config %}
 <script type="text/x-mathjax-config">MathJax.Hub.Config({{ MATH_JAX.hub_config|tojson }});</script>
-        {% endif %}
-<script type="text/javascript" async="async" src="{{ MATH_JAX.url }}"></script>
     {% endif %}
+<script type="text/javascript" async="async" src="{{ MATH_JAX.url }}"></script>
+{% elif article.mathengine == 'katex-half' %}
+<link rel="stylesheet" href="{{ KATEX.prefix }}/katex.min.css"{% if KATEX.style_integrity %} integrity="{{ KATEX.style_integrity }}"{% endif %} crossorigin="anonymous"{% if KATEX.defer_css %} media="print" onload="this.media='all'"{% endif %}/>
+    {% if KATEX.preload_fonts %}{% for font in KATEX.preload_fonts %}
+<link rel="preload" href="{{ KATEX.prefix }}/fonts/{{ font }}" as="font" type="font/woff2" crossorigin="anonymous" />
+    {% endfor %}{% endif %}
+<script defer src="{{ KATEX.prefix }}/katex.min.js"{% if KATEX.katex_js_integrity %} integrity="{{ KATEX.katex_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
+<script defer src="{{ KATEX.prefix }}/contrib/auto-render.min.js"{% if KATEX.auto_render_js_integrity %} integrity="{{ KATEX.auto_render_js_integrity }}"{% endif %} crossorigin="anonymous"></script>
+<script>
+window.addEventListener("load", function() {
+renderMathInElement(document.getElementById('main'), {{ KATEX.options|tojson }});
+});
+</script>
 {% endif %}
 {% endblock %}
 
