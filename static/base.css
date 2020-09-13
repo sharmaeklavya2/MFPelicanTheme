@@ -17,7 +17,7 @@ main {
 /* colors */
 body {
     --text-color: #202020;
-    --emph-color: black;
+    --emph-color: #101010;
     --very-light-tint: rgba(0, 0, 0, 0.02);
     --light-tint: rgba(0, 0, 0, 0.05);
     --medium-tint: rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@ a:visited {color: rgb(100, 0, 150);}
     body {
         background: rgb(27, 30, 32);
         --text-color: rgb(192, 192, 192);
-        --emph-color: rgb(220, 220, 220);
+        --emph-color: rgb(225, 225, 225);
         --link-color: rgb(65, 175, 235);
         --very-light-tint: rgba(255, 255, 255, 0.02);
         --light-tint: rgba(255, 255, 255, 0.05);
@@ -203,6 +203,7 @@ a:not(:hover) {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: initial;
+    color: var(--emph-color);
 }
 h1 {
     font-size: 2em;
