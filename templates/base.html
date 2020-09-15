@@ -12,14 +12,15 @@
     {% endif %}
 {% endblock %}
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', (event) => {
+function enableNav() {
     nav = document.getElementById('nav');
     nav.classList.add('hidden');
     collapsor = document.getElementById('nav-collapsor');
     collapsor.addEventListener('click', (event) => {
         nav.classList.toggle('hidden');
     });
-});
+}
+// document.addEventListener('DOMContentLoaded', enableNav);
 </script>
 {% endblock head -%}
 </head>
@@ -68,6 +69,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 {% endif %}
 </nav>
 </header>
+<script type="text/javascript">
+enableNav();
+</script>
 
 <main id="main">
 {% block content %}
