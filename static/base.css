@@ -22,9 +22,9 @@ body {
     --light-tint: rgba(0, 0, 0, 0.05);
     --medium-tint: rgba(0, 0, 0, 0.1);
     --heavy-tint: rgba(0, 0, 0, 0.2);
+    --link-color: rgb(3, 102, 214);
+    --vlink-color: rgb(100, 0, 150);
 }
-a {color: rgb(3, 102, 214);}
-a:visited {color: rgb(100, 0, 150);}
 @media (prefers-color-scheme: dark) {
     body {
         background: rgb(27, 30, 32);
@@ -35,9 +35,9 @@ a:visited {color: rgb(100, 0, 150);}
         --light-tint: rgba(255, 255, 255, 0.05);
         --medium-tint: rgba(255, 255, 255, 0.1);
         --heavy-tint: rgba(255, 255, 255, 0.2);
+        --link-color: rgb(65, 175, 235);
+        --vlink-color: rgb(150, 100, 230);
     }
-    a {color: rgb(65, 175, 235);}
-    a:visited {color: rgb(150, 100, 230);}
     img {
         filter: brightness(.8) contrast(1.2);
     }
@@ -119,6 +119,8 @@ nav > .nav-heading {
 }
 
 /* main */
+a {color: var(--link-color);}
+a:visited {color: var(--vlink-color);}
 #post-list {
     list-style-type: none;
     padding: 0;
@@ -160,6 +162,12 @@ nav > .nav-heading {
 }
 svg.icon {
     fill: var(--text-color);
+}
+a svg.icon {
+    fill: var(--link-color);
+}
+a:visited svg.icon {
+    fill: var(--vlink-color);
 }
 .hori-link-list {
     padding: 0;
@@ -222,7 +230,7 @@ article h2 {
 h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .headerlink {
     visibility: hidden;
 }
-.headerlink {
+.headerlink, .headerlink:visited {
     margin-left: 0.2em;
     text-decoration: none;
     color: #888;
