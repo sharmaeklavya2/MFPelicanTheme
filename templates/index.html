@@ -4,8 +4,13 @@
 <ol id="post-list">
 {% for article in articles_page.object_list %}
 <li>
+    {% if article.url.startswith('http:') or article.url.startswith('https:') %}
+<h2><a href="{{ article.url }}">{{ article.title }}
+<svg class="icon inline-extlink-icon"><use xlink:href="{{ SITEURL }}/theme/sprites.svg#fa-external-link-alt"/></svg></a></h2>
+    {% else %}
 <h2><a href="{{ SITEURL }}/{{ article.url }}" >{{ article.title }}</a></h2>
-{% include 'post_details.html' %}
+    {% endif %}
+    {% include 'post_details.html' %}
 <div class="entry-content">{{ article.summary }}</div>
 </li>
 {% endfor %}

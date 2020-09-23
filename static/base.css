@@ -163,6 +163,10 @@ a:visited {color: var(--vlink-color);}
 svg.icon {
     fill: var(--text-color);
 }
+.inline-extlink-icon {
+    width: 0.6em;
+    height: 0.6em;
+}
 a svg.icon {
     fill: var(--link-color);
 }

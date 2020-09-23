@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Archives{% endblock %}
+{% block content %}
+<h1>Archives for {{ SITENAME }}</h1>
+<dl>
+{% for article in dates %}
+<dt>{{ article.locale_date }}</dt>
+    {% if article.url.startswith('http:') or article.url.startswith('https:') %}
+<dd><a href="{{ article.url }}">{{ article.title }}</a></dd>
+    {% else %}
+<dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    {% endif %}
+{% endfor %}
+</dl>
+{% endblock %}
