@@ -38,7 +38,7 @@ body {
         --link-color: rgb(65, 175, 235);
         --vlink-color: rgb(150, 100, 230);
     }
-    img {
+    img:not(.nofilter) {
         filter: brightness(.8) contrast(1.2);
     }
 }
