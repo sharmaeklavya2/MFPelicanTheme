@@ -41,6 +41,9 @@ body {
     img:not(.nofilter) {
         filter: brightness(.8) contrast(1.2);
     }
+    img.no-dark {
+        background-color: white;
+    }
 }
 
 /* header */
