@@ -24,6 +24,8 @@ body {
     --heavy-tint: rgba(0, 0, 0, 0.2);
     --link-color: rgb(3, 102, 214);
     --vlink-color: rgb(100, 0, 150);
+    --text-danger: #dc3545;
+    --text-success: #198754;
 }
 @media (prefers-color-scheme: dark) {
     body {
@@ -37,6 +39,8 @@ body {
         --heavy-tint: rgba(255, 255, 255, 0.2);
         --link-color: rgb(65, 175, 235);
         --vlink-color: rgb(150, 100, 230);
+        --text-danger: #e74c3c;
+        --text-success: #00bc8c;
     }
     img:not(.nofilter) {
         filter: brightness(.8) contrast(1.2);
@@ -241,6 +245,12 @@ h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .he
     margin-left: 0.2em;
     text-decoration: none;
     color: #888;
+}
+.danger {
+    color: var(--text-danger);
+}
+.success {
+    color: var(--text-success);
 }
 em {
     color: var(--emph-color);
