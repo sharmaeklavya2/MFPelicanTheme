@@ -42,7 +42,7 @@ body {
         --text-danger: #e74c3c;
         --text-success: #00bc8c;
     }
-    img:not(.nofilter) {
+    img:not(.nofilter), video.dark-filter {
         filter: brightness(.8) contrast(1.2);
     }
     img.no-dark {
@@ -297,7 +297,7 @@ figure > figcaption {
     text-align: center;
     padding: 0.2rem 0.5rem;
 }
-figure img {
+figure img, figure video, figure code {
     max-width: 100%;
 }
 .gallery {
