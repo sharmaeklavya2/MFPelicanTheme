@@ -18,29 +18,28 @@ main {
 body {
     --text-color: #202020;
     --emph-color: #101010;
-    --very-light-tint: rgba(0, 0, 0, 0.02);
-    --light-tint: rgba(0, 0, 0, 0.05);
-    --medium-tint: rgba(0, 0, 0, 0.1);
-    --heavy-tint: rgba(0, 0, 0, 0.2);
     --link-color: rgb(3, 102, 214);
     --vlink-color: rgb(100, 0, 150);
     --text-danger: #dc3545;
     --text-success: #198754;
+    --very-light-tint: rgba(0, 0, 0, 0.02);
+    --light-tint: rgba(0, 0, 0, 0.05);
+    --medium-tint: rgba(0, 0, 0, 0.1);
+    --heavy-tint: rgba(0, 0, 0, 0.2);
 }
 @media (prefers-color-scheme: dark) {
     body {
-        background: rgb(27, 30, 32);
-        --text-color: rgb(192, 192, 192);
-        --emph-color: rgb(225, 225, 225);
-        --link-color: rgb(65, 175, 235);
+        background: #1b1e20;
+        --text-color: #c0c0c0;
+        --emph-color: #e1e1e1;
+        --link-color: #8ab4f8;
+        --vlink-color: #c58af9;
+        --text-danger: #e74c3c;
+        --text-success: #00bc8c;
         --very-light-tint: rgba(255, 255, 255, 0.02);
         --light-tint: rgba(255, 255, 255, 0.05);
         --medium-tint: rgba(255, 255, 255, 0.1);
         --heavy-tint: rgba(255, 255, 255, 0.2);
-        --link-color: rgb(65, 175, 235);
-        --vlink-color: rgb(150, 100, 230);
-        --text-danger: #e74c3c;
-        --text-success: #00bc8c;
     }
     img:not(.nofilter), video.dark-filter {
         filter: brightness(.8) contrast(1.2);
