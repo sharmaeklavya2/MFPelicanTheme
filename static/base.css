@@ -289,6 +289,14 @@ code {
     overflow-x: auto;
     display: block;
 }
+div.math {
+    overflow-x: auto;
+}
+time.outdated {
+    text-decoration: line-through;
+}
+
+/* figure and gallery */
 figure {
     margin: 0.25em 0;
     display: inline-flex;
@@ -312,12 +320,8 @@ figure img, figure video, figure code {
 .gallery > figure {
     margin: 0.25em;
 }
-div.math {
-    overflow-x: auto;
-}
-time.outdated {
-    text-decoration: line-through;
-}
+
+/* details */
 details {
     border: 1px solid;
     border-radius: 0.4rem;
@@ -339,4 +343,21 @@ details[open] {
 details[open] > summary {
     border-bottom: 1px solid;
     margin-bottom: 0.5rem;
+}
+
+/* numbered headings */
+.numheads {counter-reset: section;}
+.numheads h2 {counter-reset: subsection;}
+
+.numheads h2::before {
+    counter-increment: section;
+    content: counter(section) ". ";
+}
+.numheads h3::before {
+    counter-increment: subsection;
+    content: counter(section) "." counter(subsection) ". ";
+}
+.numheads h2::before, .numheads h3::before {
+    color: var(--text-secondary);
+    font-size: 0.9em;
 }

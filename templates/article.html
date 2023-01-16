@@ -28,7 +28,7 @@
 <h1 class="entry-title">{{ article.title }}</h1>
 {% include 'post_details.html' %}
 
-<div class="entry-content">
+<div class="entry-content{% if NUMBER_HEADINGS %} numheads{% endif %}">
 {{ article.content }}
 </div>
 </article>
