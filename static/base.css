@@ -289,7 +289,7 @@ code {
     overflow-x: auto;
     display: block;
 }
-div.math {
+div.math, .katex-display {
     overflow-x: auto;
 }
 time.outdated {
