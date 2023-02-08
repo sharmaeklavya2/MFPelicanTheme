@@ -256,7 +256,7 @@ h2:not(:hover) > .headerlink, h3:not(:hover) > .headerlink, h4:not(:hover) > .he
 .success {
     color: var(--text-success);
 }
-em {
+strong, em {
     color: var(--emph-color);
 }
 table {
