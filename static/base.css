@@ -291,6 +291,7 @@ code {
 }
 div.math, .katex-display {
     overflow-x: auto;
+    overflow-y: hidden;
 }
 time.outdated {
     text-decoration: line-through;
