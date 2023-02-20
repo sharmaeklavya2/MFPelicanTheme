@@ -214,8 +214,14 @@ a:visited svg.icon {
 .post-details > * > *:not(:last-child) {
     margin-right: 0.4rem;
 }
-.targetbox:target {
+.fbox {
+    border: 1px solid;
+    padding: 0.8em;
+}
+.targetbox {
     display: block;
+}
+.targetbox:target {
     background-color: var(--light-tint);
     box-shadow: 0px 0px 5px 10px var(--light-tint);
 }
