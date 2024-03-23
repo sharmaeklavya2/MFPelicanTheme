@@ -306,6 +306,7 @@ div.math, .katex-display {
 }
 time.outdated {
     text-decoration: line-through;
+    color: var(--text-secondary);
 }
 
 /* figure and gallery */
